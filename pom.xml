@@ -7,9 +7,9 @@
     <groupId>org.example</groupId>
     <artifactId>lambda-and-streams</artifactId>
     <version>1.0-SNAPSHOT</version>
-
    <dependencies>
        <dependency>
+            <!-- Setters y Getters automaticos, para no tener que crearlos-->
            <groupId>org.projectlombok</groupId>
            <artifactId>lombok</artifactId>
            <version>1.18.24</version>
@@ -17,6 +17,7 @@
        </dependency>
 
        <dependency>
+           <!-- Imprime como si fuera un JSON, para que sea mas legible -->
            <groupId>com.fasterxml.jackson.core</groupId>
            <artifactId>jackson-databind</artifactId>
            <version>2.13.3</version>

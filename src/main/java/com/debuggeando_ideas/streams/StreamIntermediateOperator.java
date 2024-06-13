@@ -1,5 +1,6 @@
 package com.debuggeando_ideas.streams;
 
+import com.debuggeando_ideas.util.BasicVideogame;
 import com.debuggeando_ideas.util.Database;
 import com.debuggeando_ideas.util.Videogame;
 
@@ -13,7 +14,8 @@ public class StreamIntermediateOperator {
     public static void main(String[] args) {
         Stream<Videogame> stream = Database.videogames.stream();
 
-        filterOperator(stream);
+        mapOperator(stream);
+        //filterOperator(stream);
         //limitOperator(stream);
         //  distinctOperator(stream);
 
@@ -45,7 +47,27 @@ public class StreamIntermediateOperator {
         r.forEach(System.out::println);
     }
 
+    // El operador más usado "MAP"
+    // Map, se usa para transformar datos, hacer una operación
+    // y traer datos nuevos a partir de los datos originales
+    static void mapOperator(Stream<Videogame> stream) {
+        List<BasicVideogame> basicVideogames = stream
+                .map(v -> {
+                   //Por cada elemento me retorne
+                   return BasicVideogame.builder()
+                           .name(v.getName())
+                           .price(v.getPrice())
+                           .console(v.getConsole())
+                           .build();
+                }).collect(Collectors.toList());
 
+        List<String> titles = basicVideogames.stream()
+                .map(BasicVideogame::getName)
+                .collect(Collectors.toList());
+
+        basicVideogames.forEach(System.out::println);
+        titles.forEach(System.out::println);
+    }
 
 
 }

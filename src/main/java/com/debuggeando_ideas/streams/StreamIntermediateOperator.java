@@ -66,8 +66,19 @@ public class StreamIntermediateOperator {
                 .collect(Collectors.toList());
 
         basicVideogames.forEach(System.out::println);
+        System.out.println("--------------");
         titles.forEach(System.out::println);
     }
 
+    // Unos de los operadores más usados
+    static void flatMapOperator(Stream<Videogame> stream) {
+        List<Videogame> r = stream
+                .filter(v -> v.getPrice() > 12.0)
+                .filter(v -> !v.getIsDiscount())
+                .filter(v -> v.getOfficialWebsite().contains("forza"))
+                .collect(Collectors.toList());
+
+        r.forEach(System.out::println);
+    }
 
 }

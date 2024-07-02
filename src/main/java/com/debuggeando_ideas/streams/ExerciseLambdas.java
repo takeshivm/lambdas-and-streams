@@ -13,6 +13,7 @@ public class ExerciseLambdas {
         Stream<Videogame> videogames = Database.videogames.stream();
         videogames.forEach(System.out::println);
 
+
         System.out.println("-----------------");
         Integer[] myArray = {1,2,3,4,5,6,7,8,9,10};
         Stream<Integer> intStream = Arrays.stream(myArray);
